@@ -19,6 +19,11 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { StudentComponent } from './student/student.component';
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { AddStudentComponent } from './add-student/add-student.component';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+
+
 
 
 
@@ -33,7 +38,8 @@ registerLocaleData(en);
     LoginComponent,
     GradebookComponent,
     TeacherComponent,
-    StudentComponent
+    StudentComponent,
+    AddStudentComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +51,9 @@ registerLocaleData(en);
     NzBreadCrumbModule,
     NzIconModule,
     NgZorroAntdModule,
-    NzAvatarModule
+    NzAvatarModule,
+    NzInputModule,
+    NzButtonModule
     
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
