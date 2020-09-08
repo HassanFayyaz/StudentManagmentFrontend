@@ -1,3 +1,4 @@
+import { AddStudentComponent } from './add-student/add-student.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
@@ -8,8 +9,15 @@ import { StudentComponent } from './student/student.component';
 const routes: Routes = [
   {path:'gradebook',component:GradebookComponent},
   {path:'',component:LoginComponent},
-  {path:'teacher',component:TeacherComponent},
-  {path:'student',component:StudentComponent}
+  {path:'layout',component:TeacherComponent,
+  children:[
+    {path:'',component:StudentComponent},
+    {path:'student',component:StudentComponent},
+    {path:'addstudent',component:AddStudentComponent}
+  
+  ]
+}
+
 ];
 
 @NgModule({
