@@ -11,11 +11,23 @@ export class InteractionService {
   private postCourseURL=environment.baseUrl+"api/courses/";
   private getcourseURL=environment.baseUrl+"api/courses/";
   private updatecourseURL=environment.baseUrl+"api/courses/";
-  private deleteURL=environment.baseUrl+"api/course/";
+  private deletCourseURL=environment.baseUrl+"api/course/";
+  private getCourseByIdURL=environment.baseUrl+"api/course/"
+  private postStudentURL=environment.baseUrl+"api/student/";
+  private getStudentURL=environment.baseUrl+"api/student/";
+  private updateStudentURL=environment.baseUrl+"api/student/";
+  private deleteStudentURL=environment.baseUrl+"api/student/";
+  private getStudentByIdURL=environment.baseUrl+"api/student/"
+  private postGradeURL=environment.baseUrl+"api/grades/";
+  private getGradeURL=environment.baseUrl+"api/grades/";
+  private updateGradeURL=environment.baseUrl+"api/grades/";
+  private deleteGradeURL=environment.baseUrl+"api/grades/";
+  private getGradeByIdURL=environment.baseUrl+"api/grades/"
   private poststudentURL=environment.baseUrl+"api/student/add";
   private getstudentURL=environment.baseUrl+"api/student/getAll";
   private updatestudentURL=environment.baseUrl+"api/student/update/";
-  private deletestudentURL=environment.baseUrl+"api/student/delete/";                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+  private deletestudentURL=environment.baseUrl+"api/student/delete/";
+  
 
 
   constructor(private http:HttpClient) { }
@@ -30,21 +42,43 @@ export class InteractionService {
     return this.http.put(this.updatecourseURL+id,updateCourse);
   }
   public deletecourse(id:any):Observable<any>{
-    return this.http.delete(this.deleteURL+id);
+    return this.http.delete(this.deletCourseURL+id);
   }
-  public addStudent(addstudent:Object):Observable<any>{
-    return this.http.post(this.poststudentURL, addstudent);
+  public getCourseById(id:any):Observable<any>{
+    return this.http.get(this.getCourseByIdURL+id);
   }
-  public getAllStudent():Observable<any> {
-    return this.http.get(this.getstudentURL);
+  public postStudent(postStd:Object):Observable<any>{
+    return this.http.post(this.postStudentURL,postStd);
   }
-  public updateStudent(id:any,addstudent:Object):Observable<any>{
-    return this.http.put(this.updatecourseURL+id,addstudent);
+  public getAllStudents():Observable<any>{
+    return this.http.get(this.getStudentURL);
   }
-  public deletestudent(id:any):Observable<any>{
-    return this.http.delete(this.deleteURL+id);
+  public updateStudent(id:any,updateStd:Object):Observable<any>{
+   return this.http.put(this.updateStudentURL+id,updateStd);
   }
-
-
-
+  public deleteStudent(id:any):Observable<any>{
+    return this.http.delete(this.deleteStudentURL+id);
+  }
+  public getStudentById(id:any):Observable<any>{
+    return this.http.get(this.getStudentByIdURL+id);
+  }
+  public postGrade(postGrade:Object):Observable<any>{
+    return this.http.post(this.postGradeURL,postGrade);
+  }
+  public getGrades():Observable<any>{
+    return this.http.get(this.getGradeURL);
+  }
+  public updateGrades(id:any,updateGrade:Object):Observable<any>{
+    return this.http.put(this.updateGradeURL+id,updateGrade);
+  }
+  public deleteGrade(id:any):Observable<any>{
+    return this.http.delete(this.deleteGradeURL+id);
+  }
+  public getGradeById(id:any):Observable<any>{
+    return this.http.get(this.getGradeByIdURL+id);
+  }
+  
+ 
+  
+ 
 }

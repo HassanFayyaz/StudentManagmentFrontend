@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
@@ -28,9 +27,7 @@ import { NzMessageModule } from 'ng-zorro-antd/message';
 
 import { AddCourseComponent } from './add-course/add-course.component';
 import { CourseListComponent } from './course-list/course-list.component';
-
-
-
+import { GradeListComponent } from './grade-list/grade-list.component';
 
 
 
@@ -48,7 +45,8 @@ registerLocaleData(en);
     AddStudentComponent,
     AddcourseweightComponent,
     AddCourseComponent,
-    CourseListComponent
+    CourseListComponent,
+    GradeListComponent
   ],
   imports: [
     BrowserModule,

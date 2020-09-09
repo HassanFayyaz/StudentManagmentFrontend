@@ -21,4 +21,18 @@ export class TeacherComponent implements OnInit {
     this.router.navigate(['layout/courselist']);
   }
 
+  gotoaddStudent(){
+   this.router.navigate(['layout/addstudent'])
+  }
+  gotoStudentList(){
+    this.router.navigate(['layout/student'])
+  }
+
+  gotoaddGrade(){
+    this.router.navigate(['layout/addgrades'])
+
+  }
+  gotoGradeList(){
+    this.router.navigate(['layout/gradelist'])
+  }
 }
