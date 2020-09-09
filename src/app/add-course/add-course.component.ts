@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AddCourse } from './addcourse';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-course',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddCourseComponent implements OnInit {
 
-  constructor() { }
+  addcourse:AddCourse=new AddCourse();
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
+
+  
+  }
+  AddCourse(){
+
   }
 
 }
