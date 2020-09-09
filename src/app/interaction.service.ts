@@ -16,18 +16,23 @@ export class InteractionService {
   private postStudentURL=environment.baseUrl+"api/student/";
   private getStudentURL=environment.baseUrl+"api/student/";
   private updateStudentURL=environment.baseUrl+"api/student/";
-  private deletStudentURL=environment.baseUrl+"api/student/";
+  private deleteStudentURL=environment.baseUrl+"api/student/";
   private getStudentByIdURL=environment.baseUrl+"api/student/"
   private postGradeURL=environment.baseUrl+"api/grades/";
   private getGradeURL=environment.baseUrl+"api/grades/";
   private updateGradeURL=environment.baseUrl+"api/grades/";
   private deleteGradeURL=environment.baseUrl+"api/grades/";
   private getGradeByIdURL=environment.baseUrl+"api/grades/"
+  private poststudentURL=environment.baseUrl+"api/student/add";
+  private getstudentURL=environment.baseUrl+"api/student/getAll";
+  private updatestudentURL=environment.baseUrl+"api/student/update/";
+  private deletestudentURL=environment.baseUrl+"api/student/delete/";
+  
 
 
   constructor(private http:HttpClient) { }
 
-  public addCourse(addcourse: Object): Observable<any> {
+  public addCourse(addcourse: object): Observable<any> {
     return this.http.post(this.postCourseURL, addcourse);
   }
   public getAllCourse():Observable<any> {
@@ -52,7 +57,7 @@ export class InteractionService {
    return this.http.put(this.updateStudentURL+id,updateStd);
   }
   public deleteStudent(id:any):Observable<any>{
-    return this.http.delete(this.deletStudentURL+id);
+    return this.http.delete(this.deleteStudentURL+id);
   }
   public getStudentById(id:any):Observable<any>{
     return this.http.get(this.getStudentByIdURL+id);
@@ -72,4 +77,8 @@ export class InteractionService {
   public getGradeById(id:any):Observable<any>{
     return this.http.get(this.getGradeByIdURL+id);
   }
+  
+ 
+  
+ 
 }
