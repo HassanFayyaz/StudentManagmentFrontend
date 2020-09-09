@@ -2,20 +2,20 @@
     <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
       <div class="logo"></div>
       <ul nz-menu nzTheme="dark" nzMode="inline">
-        <li nz-submenu nzTitle="Student" nzIcon="user">
+        <li nz-submenu style="font-size:large;font-variant: small-caps;" nzTitle="Student" nzIcon="user">
           <ul>
             <li nz-menu-item>Add</li>
             <li nz-menu-item>View</li>
            
           </ul>
         </li>
-        <li nz-submenu nzTitle="Courses" nzIcon="team">
+        <li nz-submenu style="font-size:large;font-variant: small-caps;" nzTitle="Courses" nzIcon="book">
           <ul>
             <li nz-menu-item (click)="gotoaddcourse()" >Add</li>
             <li nz-menu-item (click)="gotocourseList()" >View</li>
           </ul>
         </li>
-        <li nz-submenu nzTitle="Grades" nzIcon="team">
+        <li nz-submenu style="font-size:large;font-variant: small-caps;" nzTitle="Grades" nzIcon="laptop">
           <ul>
             <li nz-menu-item>Add</li>
             <li nz-menu-item>View</li>
@@ -27,6 +27,8 @@
     <nz-layout>
       <nz-header>
         <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'" (click)="isCollapsed = !isCollapsed"></i>
+        <span style="width:80%; margin-left: 35%; text-align:center; font-size:xx-large;font-variant: small-caps;">Teacher Portal</span>
+
       </nz-header>
       <nz-content>
           <br>
