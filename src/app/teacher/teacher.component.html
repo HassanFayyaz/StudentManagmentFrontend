@@ -4,8 +4,8 @@
       <ul nz-menu nzTheme="dark" nzMode="inline">
         <li nz-submenu style="font-size:large;font-variant: small-caps;" nzTitle="Student" nzIcon="user">
           <ul>
-            <li nz-menu-item>Add</li>
-            <li nz-menu-item>View</li>
+            <li nz-menu-item (click)="gotoaddStudent()">Add</li>
+            <li nz-menu-item (click)="gotoStudentList()">View</li>
            
           </ul>
         </li>
@@ -17,8 +17,8 @@
         </li>
         <li nz-submenu style="font-size:large;font-variant: small-caps;" nzTitle="Grades" nzIcon="laptop">
           <ul>
-            <li nz-menu-item>Add</li>
-            <li nz-menu-item>View</li>
+            <li nz-menu-item (click)="gotoaddGrade()">Add</li>
+            <li nz-menu-item (click)="gotoGradeList()">View</li>
           </ul>
         </li>
        

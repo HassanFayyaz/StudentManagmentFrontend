@@ -1,3 +1,4 @@
+import { GradeListComponent } from './grade-list/grade-list.component';
 import { AddStudentComponent } from './add-student/add-student.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -18,6 +19,7 @@ const routes: Routes = [
     {path:'student',component:StudentComponent},
     {path:'addstudent',component:AddStudentComponent},
     {path:'addgrades',component:AddcourseweightComponent},
+    {path:'gradelist',component:GradeListComponent},
     {path:'addcourse',component:AddCourseComponent},
     {path:'courselist',component:CourseListComponent}
 
