@@ -1,4 +1,4 @@
-<nz-layout>
+<nz-layout style="height:100%" >
     <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
       <div class="logo"></div>
       <ul nz-menu nzTheme="dark" nzMode="inline">
@@ -11,8 +11,8 @@
         </li>
         <li nz-submenu nzTitle="Courses" nzIcon="team">
           <ul>
-            <li nz-menu-item>Add</li>
-            <li nz-menu-item>View</li>
+            <li nz-menu-item (click)="gotoaddcourse()" >Add</li>
+            <li nz-menu-item (click)="gotocourseList()" >View</li>
           </ul>
         </li>
         <li nz-submenu nzTitle="Grades" nzIcon="team">

@@ -22,6 +22,8 @@ import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { AddStudentComponent } from './add-student/add-student.component';
 import { NzButtonModule } from 'ng-zorro-antd/button';
+import { AddCourseComponent } from './add-course/add-course.component';
+import { CourseListComponent } from './course-list/course-list.component';
 
 
 
@@ -39,7 +41,9 @@ registerLocaleData(en);
     GradebookComponent,
     TeacherComponent,
     StudentComponent,
-    AddStudentComponent
+    AddStudentComponent,
+    AddCourseComponent,
+    CourseListComponent
   ],
   imports: [
     BrowserModule,
