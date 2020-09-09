@@ -24,6 +24,7 @@ import { AddStudentComponent } from './add-student/add-student.component';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { AddcourseweightComponent } from './addcourseweight/addcourseweight.component';
 import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzMessageModule } from 'ng-zorro-antd/message';
 
 import { AddCourseComponent } from './add-course/add-course.component';
 import { CourseListComponent } from './course-list/course-list.component';
@@ -62,7 +63,8 @@ registerLocaleData(en);
     NzAvatarModule,
     NzInputModule,
     NzButtonModule,
-    NzSelectModule
+    NzSelectModule,
+    NzMessageModule
     
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
