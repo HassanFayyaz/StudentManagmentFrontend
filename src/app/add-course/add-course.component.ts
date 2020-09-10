@@ -11,6 +11,8 @@ import { NzMessageService } from 'ng-zorro-antd';
 })
 export class AddCourseComponent implements OnInit {
 
+  title:any="Add Course";
+  changebuttonname:any="Save";
   id:any;
   addcourse:AddCourse=new AddCourse();
   constructor(private router:Router,private service:InteractionService,private activatedroute:ActivatedRoute,private message: NzMessageService) { }
@@ -18,16 +20,24 @@ export class AddCourseComponent implements OnInit {
   
   ngOnInit(): void {
     this.id=this.activatedroute.snapshot.params['id'];
+    if(this.id!=null){
+      this.getcoursebyid(this.id);
+      this.title="Update Course";
+      this.changebuttonname="Update";
+    }
 
   
   }
   AddCourse(){
-    if(this.id==null && this.id==0){ 
+
+    if(this.id==null){ 
       console.log(this.addcourse);
       this.service.addCourse(this.addcourse).subscribe(response=>{
         console.log(response);
         if(response.status==200){
           this.message.success("Added Successfully", { nzDuration: 3000 });
+          this.addcourse.courseName="";
+          this.addcourse.courseWeight=null;
 
 
         }else{
@@ -39,7 +49,7 @@ export class AddCourseComponent implements OnInit {
       this.service.updateCourse(this.id,this.addcourse).subscribe(response=>{
         console.log(response);
         if(response.status==200){
-          this.message.success("Added Successfully", { nzDuration: 3000 });
+          this.message.success("updated Successfully", { nzDuration: 3000 });
         }else{
           this.message.error("Cannot update", { nzDuration: 3000 });
         }
@@ -50,6 +60,10 @@ export class AddCourseComponent implements OnInit {
 
   }
   getcoursebyid(id:any){
+    this.service.getCourseById(id).subscribe(response=>{
+      this.addcourse.courseName=response.result.courseName;
+      this.addcourse.courseWeight=response.result.courseWeight;
+})
     
 
   }
