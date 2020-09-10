@@ -1,20 +1,20 @@
-<h1 style="width:80%; margin-left: 10%; text-align:center; font-size:x-large;font-variant: small-caps;">Add Student</h1>
+<h1 style="width:80%; margin-left: 10%; text-align:center; font-size:x-large;font-variant: small-caps;">{{title}}</h1>
 <nz-card>
-    <label><b> Name:</b></label>
-    <input nz-input placeholder="Name" nzSize="default" />
+    <label><b> Student Name:</b></label>
+    <input [(ngModel)]="addstudent.studentName" name="studentName" nz-input placeholder="Name" nzSize="default" />
     <br>
     <br>
     <label><b> Email:</b></label>
-    <input nz-input placeholder="Email" nzSize="default" />
+    <input [(ngModel)]="addstudent.studentEmail" name="studentEmail" nz-input placeholder="Email" nzSize="default" />
     <br>
     <br>
     <label><b> Password:</b></label>
-    <input nz-input placeholder="Password" nzSize="default" />
+    <input [(ngModel)]="addstudent.studentPassword" name="studentPassword" nz-input placeholder="Password" nzSize="default" />
 
     <br>
     <br>
 
-    <button style="width: 60%; margin-left: 20%;" nz-button nzType="primary">Submit</button>
+    <button (click)="savestudent()" style="width: 60%; margin-left: 20%;" nz-button nzType="primary">{{changebuttonname}}</button>
 
     
 

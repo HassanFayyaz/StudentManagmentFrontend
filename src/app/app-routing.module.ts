@@ -21,7 +21,9 @@ const routes: Routes = [
     {path:'addgrades',component:AddcourseweightComponent},
     {path:'gradelist',component:GradeListComponent},
     {path:'addcourse',component:AddCourseComponent},
-    {path:'courselist',component:CourseListComponent}
+    {path:'addcourse/:id',component:AddCourseComponent},
+    {path:'courselist',component:CourseListComponent},
+    {path:'addstudent/:id',component:AddStudentComponent}
 
   
   ]
