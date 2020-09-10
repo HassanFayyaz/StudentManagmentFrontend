@@ -11,8 +11,8 @@ export class InteractionService {
   private postCourseURL=environment.baseUrl+"api/courses/";
   private getcourseURL=environment.baseUrl+"api/courses/";
   private updatecourseURL=environment.baseUrl+"api/courses/";
-  private deletCourseURL=environment.baseUrl+"api/course/";
-  private getCourseByIdURL=environment.baseUrl+"api/course/"
+  private deletCourseURL=environment.baseUrl+"api/courses/";
+  private getCourseByIdURL=environment.baseUrl+"api/courses/"
   private postStudentURL=environment.baseUrl+"api/student/add";
   private getStudentURL=environment.baseUrl+"api/student/getAll";
   private updateStudentURL=environment.baseUrl+"api/student/update/";
