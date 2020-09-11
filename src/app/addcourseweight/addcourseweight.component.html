@@ -1,23 +1,28 @@
-<h1 style="width:80%; margin-left: 10%; text-align:center; font-size:x-large;font-variant: small-caps;">Add Grades</h1>
+<h1 style="width:80%; margin-left: 10%; text-align:center; font-size:x-large;font-variant: small-caps;">{{title}}</h1>
 <nz-card>
     <label><b> Select Student:</b></label>
-    <nz-select [(ngModel)]="weightObj.student">
-      <nz-option *ngFor="let item of studentArray" nzLabel={{item.studentName}} nzValue="{{item.id}}"></nz-option>
+   
+    <nz-select [(ngModel)]="weightObj.student" required>
+      <nz-option name="student" *ngFor="let item of studentArray" [selected]="item.isSelected == true" nzLabel={{item.studentName}} [nzValue]="item"></nz-option>
       </nz-select>
+     
     <br>
     <br>
     <label><b> Select Course:</b></label>
-    <nz-select [(ngModel)]="weightObj.course">
-      <nz-option *ngFor="let item of courseArray" nzLabel={{item.courseName}} nzValue="{{item.id}}"></nz-option>
-      </nz-select>    <br>
+    
+    <nz-select [(ngModel)]="weightObj.course" required >
+      <nz-option name="course" *ngFor="let item of courseArray" [selected]="item.isSelected == true" nzLabel={{item.courseName}} [nzValue]="item"></nz-option>
+      </nz-select>    
+   
+      <br>
     <br>
     <label><b> Course Marks:</b></label>
-    <input nz-input placeholder="Marks" nzSize="default" [(ngModel)]="weightObj.courseMarks" />
+    <input nz-input placeholder="Marks" nzSize="default" [(ngModel)]="weightObj.courseMarks" required />
 
     <br>
     <br>
 
-    <button style="width: 60%; margin-left: 20%;" (click)= "postGrade()" nz-button nzType="primary">Submit</button>
+    <button style="width: 60%; margin-left: 20%;" (click)= "postGrade()" nz-button nzType="primary">{{changebuttonname}}</button>
 
     
 

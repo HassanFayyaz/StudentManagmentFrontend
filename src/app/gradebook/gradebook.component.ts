@@ -1,3 +1,6 @@
+import { Router, ActivatedRoute } from '@angular/router';
+import { NzMessageService } from 'ng-zorro-antd';
+import { InteractionService } from './../interaction.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,10 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GradebookComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: InteractionService,private message: NzMessageService, private router: Router, private activateRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
   }
+
+  
   gridStyle = {
     width: '40%',
     textAlign: 'center',
