@@ -18,17 +18,13 @@ export class InteractionService {
   private updateStudentURL=environment.baseUrl+"api/student/update/";
   private deleteStudentURL=environment.baseUrl+"api/student/delete/";
   private getStudentByIdURL=environment.baseUrl+"api/student/"
-  private postGradeURL=environment.baseUrl+"api/grades/";
+  private postGradeURL=environment.baseUrl+"api/grades/add";
   private getGradeURL=environment.baseUrl+"api/grades/";
   private updateGradeURL=environment.baseUrl+"api/grades/";
   private deleteGradeURL=environment.baseUrl+"api/grades/";
   private getGradeByIdURL=environment.baseUrl+"api/grades/"
-  private poststudentURL=environment.baseUrl+"api/student/add";
-  private getstudentURL=environment.baseUrl+"api/student/getAll";
-  private updatestudentURL=environment.baseUrl+"api/student/update/";
-  private deletestudentURL=environment.baseUrl+"api/student/delete/";
+
   private loginuserURL=environment.baseUrl+"token/generate-token";
-  
 
 
   constructor(private http:HttpClient) { }
@@ -70,7 +66,7 @@ export class InteractionService {
   public postGrade(postGrade:Object):Observable<any>{
     return this.http.post(this.postGradeURL,postGrade);
   }
-  public getGrades():Observable<any>{
+  public getAllGrades():Observable<any>{
     return this.http.get(this.getGradeURL);
   }
   public updateGrades(id:any,updateGrade:Object):Observable<any>{
