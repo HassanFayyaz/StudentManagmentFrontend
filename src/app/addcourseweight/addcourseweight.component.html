@@ -1,25 +1,23 @@
 <h1 style="width:80%; margin-left: 10%; text-align:center; font-size:x-large;font-variant: small-caps;">Add Grades</h1>
 <nz-card>
     <label><b> Select Student:</b></label>
-    <nz-select ngModel="lucy">
-        <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
-        <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+    <nz-select [(ngModel)]="weightObj.student">
+      <nz-option *ngFor="let item of studentArray" nzLabel={{item.studentName}} nzValue="{{item.id}}"></nz-option>
       </nz-select>
     <br>
     <br>
     <label><b> Select Course:</b></label>
-    <nz-select ngModel="lucy">
-        <nz-option nzValue="jack" nzLabel="English"></nz-option>
-        <nz-option nzValue="lucy" nzLabel="Maths"></nz-option>
+    <nz-select [(ngModel)]="weightObj.course">
+      <nz-option *ngFor="let item of courseArray" nzLabel={{item.courseName}} nzValue="{{item.id}}"></nz-option>
       </nz-select>    <br>
     <br>
     <label><b> Course Marks:</b></label>
-    <input nz-input placeholder="Marks" nzSize="default" />
+    <input nz-input placeholder="Marks" nzSize="default" [(ngModel)]="weightObj.courseMarks" />
 
     <br>
     <br>
 
-    <button style="width: 60%; margin-left: 20%;" nz-button nzType="primary">Submit</button>
+    <button style="width: 60%; margin-left: 20%;" (click)= "postGrade()" nz-button nzType="primary">Submit</button>
 
     
 
