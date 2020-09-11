@@ -37,7 +37,7 @@ export class AddStudentComponent implements OnInit {
 
 
         }else{
-          this.message.error("Some error occured", { nzDuration: 3000 });
+          this.message.error("Some error occured or your email is incorrect", { nzDuration: 3000 });
         }
         
       })      

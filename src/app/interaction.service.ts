@@ -23,9 +23,15 @@ export class InteractionService {
   private updateGradeURL=environment.baseUrl+"api/grades/";
   private deleteGradeURL=environment.baseUrl+"api/grades/";
   private getGradeByIdURL=environment.baseUrl+"api/grades/"
-  
+
+  private loginuserURL=environment.baseUrl+"token/generate-token";
+
 
   constructor(private http:HttpClient) { }
+  
+  public loginuser(login:Object):Observable<any>{
+    return this.http.post(this.loginuserURL,login);
+  }
 
   public addCourse(addcourse: object): Observable<any> {
     return this.http.post(this.postCourseURL, addcourse);
@@ -73,6 +79,27 @@ export class InteractionService {
     return this.http.get(this.getGradeByIdURL+id);
   }
   
+  loggedIn(){
+    return !!sessionStorage.getItem('token')
+  }
+
+  studentRole():boolean{
+    if(sessionStorage.getItem('role') == 'student'){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
+  teacherRole():boolean{
+    if(sessionStorage.getItem('role') == 'teacher'){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
  
   
  

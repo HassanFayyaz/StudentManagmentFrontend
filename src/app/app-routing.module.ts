@@ -9,21 +9,22 @@ import { StudentComponent } from './student/student.component';
 import { AddcourseweightComponent } from './addcourseweight/addcourseweight.component';
 import { AddCourseComponent } from './add-course/add-course.component';
 import { CourseListComponent } from './course-list/course-list.component';
+import { AuthGuard } from 'src/app/auth.guard';
 
 const routes: Routes = [
-  {path:'gradebook',component:GradebookComponent},
+  {path:'gradebook',component:GradebookComponent, canLoad:[AuthGuard]},
   {path:'',component:LoginComponent},
-  {path:'layout',component:TeacherComponent,
+  {path:'layout',component:TeacherComponent, canActivate:[AuthGuard],
   children:[
-    {path:'',component:StudentComponent},
-    {path:'student',component:StudentComponent},
-    {path:'addstudent',component:AddStudentComponent},
-    {path:'addgrades',component:AddcourseweightComponent},
-    {path:'gradelist',component:GradeListComponent},
-    {path:'addcourse',component:AddCourseComponent},
-    {path:'addcourse/:id',component:AddCourseComponent},
-    {path:'courselist',component:CourseListComponent},
-    {path:'addstudent/:id',component:AddStudentComponent}
+    {path:'',component:StudentComponent, canActivate:[AuthGuard]},
+    {path:'student',component:StudentComponent, canActivate:[AuthGuard]},
+    {path:'addstudent',component:AddStudentComponent, canActivate:[AuthGuard]},
+    {path:'addgrades',component:AddcourseweightComponent, canActivate:[AuthGuard]},
+    {path:'gradelist',component:GradeListComponent, canActivate:[AuthGuard]},
+    {path:'addcourse',component:AddCourseComponent, canActivate:[AuthGuard]},
+    {path:'addcourse/:id',component:AddCourseComponent, canActivate:[AuthGuard]},
+    {path:'courselist',component:CourseListComponent, canActivate:[AuthGuard]},
+    {path:'addstudent/:id',component:AddStudentComponent, canActivate:[AuthGuard]}
 
   
   ]
