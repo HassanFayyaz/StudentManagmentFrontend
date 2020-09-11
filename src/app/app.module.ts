@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { en_US } from 'ng-zorro-antd/i18n';
@@ -26,7 +26,12 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 import { AddCourseComponent } from './add-course/add-course.component';
 import { CourseListComponent } from './course-list/course-list.component';
 import { GradeListComponent } from './grade-list/grade-list.component';
+
+import { AuthGuard } from './auth.guard';
+import { NoopInterceptor } from './request.intercepts';
+
 import { NzMessageModule } from 'ng-zorro-antd/message';
+
 
 
 
@@ -68,7 +73,11 @@ registerLocaleData(en);
     NzMessageModule
     
   ],
-  providers: [{ provide: NZ_I18N, useValue: en_US }],
+  providers: [{ provide: NZ_I18N, useValue: en_US },AuthGuard,{
+    provide: HTTP_INTERCEPTORS,
+    useClass: NoopInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

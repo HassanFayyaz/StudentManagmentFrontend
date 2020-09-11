@@ -30,14 +30,13 @@ export class AddStudentComponent implements OnInit {
       this.service.postStudent(this.addstudent).subscribe(response=>{
         console.log(response);
         if(response.status==200){
-          this.message.success("Added Successfully", { nzDuration: 3000 });
+          this.message.success(response.message, { nzDuration: 3000 });
           this.addstudent.studentName="";
           this.addstudent.studentEmail="";
           this.addstudent.studentPassword="";
 
-        }
-        else{
-          this.message.error("Some error occured", { nzDuration: 3000 });
+        }else{
+          this.message.error("Some error occured or your email is incorrect", { nzDuration: 3000 });
         }
         
       })      
@@ -45,8 +44,7 @@ export class AddStudentComponent implements OnInit {
       this.service.updateStudent(this.id,this.addstudent).subscribe(response=>{
         console.log(response);
         if(response.status==200){
-          this.message.success("updated Successfully", { nzDuration: 3000 });
-         
+          this.message.success(response.message, { nzDuration: 3000 });
         }else{
           this.message.error("Cannot update", { nzDuration: 3000 });
         }
