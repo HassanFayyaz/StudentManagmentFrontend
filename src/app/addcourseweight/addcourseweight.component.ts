@@ -12,84 +12,113 @@ import { NzMessageService } from 'ng-zorro-antd';
 })
 export class AddcourseweightComponent implements OnInit {
 
-  weightObj= new addcourseweight();
+  weightObj = new addcourseweight();
 
-  constructor(private service: InteractionService,private message: NzMessageService, private router: Router, private activateRoute: ActivatedRoute) { }
+  constructor(private service: InteractionService, private message: NzMessageService, private router: Router, private activateRoute: ActivatedRoute) { }
 
-  studentArray=[];
-  courseArray=[];
-  gardesArray=[];
+  studentArray = [];
+  courseArray = [];
   id
+  title:any="Add Grade";
+  changebuttonname:any="Save";
 
   ngOnInit(): void {
-   this.getByID();
-   this.getAllStudents();
-   this.getAllCourses();
-   this.getAllGrades();
     
-  }
-
-  postGrade(){
-   console.log(this.weightObj);
-   if(!this.id){
-     this.service.postGrade(this.weightObj).subscribe(res=>{
-       console.log(res)
-       if(res==200){
-         this.message.success("Grade Added Successfully",{nzDuration:3000})
-          this.EmptyFields();
-       }
-       else{
-         this.message.error("Something Went Error",{nzDuration:3000})
-       }
-     })
-   }
-   else{
-     this.service.updateGrades(this.id,this.weightObj).subscribe(res=>{
-      this.message.success("Employee Updated Successfully", { nzDuration: 3000 })
-      this.EmptyFields();
-     })
-   }
-  }
-
-  EmptyFields(){
-    this.weightObj.student="";
-    this.weightObj.course="";
-    this.weightObj.courseMarks="";
-  }
-
-  getAllStudents(){
-    this.service.getAllStudents().subscribe(res=>{
-      this.studentArray=res.result;
-    })
-  }
-
-  getAllCourses(){
-    this.service.getAllCourse().subscribe(res=>{
-      this.courseArray=res.result;
-    })
-  }
-
-  
-  getByID(){
-    this.id= this.activateRoute.snapshot.params['id'];
-    if(this.id){
-     this.getGrade();
+    this.id = this.activateRoute.snapshot.params['id'];
+    if (this.id) {
+      this.getGrade();
+      this.title="Update Grade";
+      this.changebuttonname="Update";
+    } else {
+      this.getAllStudents();
+      this.getAllCourses();
     }
   }
 
-  getGrade(){
-    this.service.getGradeById(this.id).subscribe(res=>{
-      this.weightObj.student=res.result;
-      this.weightObj.course= res.result;
-      this.weightObj.courseMarks=res.result;
+  postGrade() {
+    console.log(this.weightObj);
+    if (!this.id) {
+      this.service.postGrade(this.weightObj).subscribe(res => {
+        console.log(res)
+        if (res == 200) {
+          this.message.success("Grade Added Successfully", { nzDuration: 3000 })
+          this.EmptyFields();
+        }
+        else {
+          this.message.error("Something Went Error", { nzDuration: 3000 })
+        }
+      })
+    }
+    else {
+      this.service.updateGrades(this.id, this.weightObj).subscribe(res => {
+        console.log(res)
+        if (res.status == 200) {
+          this.message.success("Grade Updated Successfully", { nzDuration: 3000 })
+          this.EmptyFields();
+        }
+        else {
+          this.message.error("Cannot Update", { nzDuration: 3000 });
+        }
+      })
+    }
+  }
+
+  EmptyFields() {
+    this.weightObj.student = "";
+    this.weightObj.course = "";
+    this.weightObj.courseMarks = "";
+  }
+
+  getAllStudents() {
+    this.service.getAllStudents().subscribe(res => {
+      console.log("Students", res)
+      res.map(r => {
+        r.isSelected = false;
+      })
+      this.studentArray = res;
+      let index = this.studentArray.findIndex(sa => sa.id == this.weightObj.student["id"]);
+      if (index > -1) {
+        this.weightObj.student = this.studentArray[index];
+      }
+    })
+  }
+  getAllCourses() {
+    this.service.getAllCourse().subscribe(res => {
+      console.log("Courses", res)
+      
+      res.result.map(r => {
+        r.isSelected = false;
+      })
+
+      this.courseArray = res.result;
+      
+      let index = this.courseArray.findIndex(sa => sa.id == this.weightObj.course["id"]);
+      if (index > -1) {
+        this.weightObj.course = this.courseArray[index];
+      }
     })
   }
 
-  getAllGrades(){
-    this.service.getAllGrades().subscribe(res=>{
-    this.gardesArray=res.result;
+
+  
+
+  getGrade() {
+    this.service.getGradeById(this.id).subscribe(res => {
+      console.log(res);
+      console.log("Value", res.result.student.studentName)
+      console.log("Value", res.result.course.courseName)
+
+
+      this.weightObj.student = res.result.student;
+      this.weightObj.course = res.result.course;
+      this.weightObj.courseMarks = res.result.courseMarks;
+
+      this.getAllStudents();
+      this.getAllCourses();
     })
   }
+
+
 
 
 }

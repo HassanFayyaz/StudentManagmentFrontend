@@ -19,9 +19,9 @@ export class InteractionService {
   private deleteStudentURL=environment.baseUrl+"api/student/delete/";
   private getStudentByIdURL=environment.baseUrl+"api/student/"
   private postGradeURL=environment.baseUrl+"api/grades/add";
-  private getGradeURL=environment.baseUrl+"api/grades/";
-  private updateGradeURL=environment.baseUrl+"api/grades/";
-  private deleteGradeURL=environment.baseUrl+"api/grades/";
+  private getGradeURL=environment.baseUrl+"api/grades/getAll";
+  private updateGradeURL=environment.baseUrl+"api/grades/update/";
+  private deleteGradeURL=environment.baseUrl+"api/grades/delete/";
   private getGradeByIdURL=environment.baseUrl+"api/grades/"
   
 

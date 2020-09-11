@@ -19,6 +19,7 @@ const routes: Routes = [
     {path:'student',component:StudentComponent},
     {path:'addstudent',component:AddStudentComponent},
     {path:'addgrades',component:AddcourseweightComponent},
+    {path:'addgrades/:id',component:AddcourseweightComponent},
     {path:'gradelist',component:GradeListComponent},
     {path:'addcourse',component:AddCourseComponent},
     {path:'addcourse/:id',component:AddCourseComponent},

@@ -1,5 +1,5 @@
 export class addcourseweight{
-    student:any
-    course:any
+    student:{}
+    course: {}
     courseMarks:any
 }

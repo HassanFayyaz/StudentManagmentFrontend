@@ -14,7 +14,7 @@ export class AddStudentComponent implements OnInit {
   changebuttonname:any="Save";
   id:any;
   addstudent:Student=new Student();
-  constructor(private router:Router,private service:InteractionService,private activatedroute:ActivatedRoute,private message: NzMessageService) { }
+  constructor(private router : Router,private service:InteractionService,private activatedroute:ActivatedRoute,private message: NzMessageService) { }
 
   ngOnInit(): void {
     this.id=this.activatedroute.snapshot.params['id'];
@@ -35,8 +35,8 @@ export class AddStudentComponent implements OnInit {
           this.addstudent.studentEmail="";
           this.addstudent.studentPassword="";
 
-
-        }else{
+        }
+        else{
           this.message.error("Some error occured", { nzDuration: 3000 });
         }
         
@@ -46,6 +46,7 @@ export class AddStudentComponent implements OnInit {
         console.log(response);
         if(response.status==200){
           this.message.success("updated Successfully", { nzDuration: 3000 });
+         
         }else{
           this.message.error("Cannot update", { nzDuration: 3000 });
         }
