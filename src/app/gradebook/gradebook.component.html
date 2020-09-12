@@ -1,5 +1,6 @@
 <nz-header style="background-color: rgb(239, 243, 247);">
     <span style="width:80%; margin-left: 43%; text-align:center; font-size:xx-large;font-variant: small-caps;">Student Portal</span>
+    <span (click)="goToLogin()" style="float: right;"><img src="assets/logout.png"  height="25px" width="30px"></span>
 
 </nz-header>
 
@@ -21,13 +22,13 @@
 
 
                 <nz-card>
-                    <div nz-card-grid [ngStyle]="gridStyle"><b>Student ID:</b></div>
-                    <div nz-card-grid [ngStyle]="gridStyle1">0001</div>
+                    <div nz-card-grid [ngStyle]="gridStyle"><b>Student Email:</b></div>
+                    <div nz-card-grid [ngStyle]="gridStyle1"><b>{{studentEmail}}</b></div>
 
                 </nz-card>
                 <nz-card>
                     <div nz-card-grid [ngStyle]="gridStyle"><b>Student Name:</b></div>
-                    <div nz-card-grid [ngStyle]="gridStyle1">Hassan</div>
+                    <div nz-card-grid [ngStyle]="gridStyle1"><b>{{studentName}}</b></div>
 
                 </nz-card>
             </div>
@@ -69,17 +70,17 @@
                     <div style="text-align: center;margin-top: 20px;">
                         <nz-card>
     
-                            <div nz-card-grid [ngStyle]="gridStyle2"> <span style="font-size:small;"><b>Student ID</b></span> <span
+                            <div nz-card-grid [ngStyle]="gridStyle2"> <span style="font-size:small;"><b>Student Email</b></span> <span
                                     style="text-align:justify; font-size: xx-small;"> </span></div>
-                            <div nz-card-grid [ngStyle]="gridStyle2"> <span style="font-size:small;">0001</span> <span
+                            <div nz-card-grid [ngStyle]="gridStyle2"> <span style="font-size:small;"><b>{{studentEmail}}</b></span> <span
                                     style="text-align:justify; font-size: xx-small;"> </span></div>
                             <div nz-card-grid [ngStyle]="gridStyle2"> <span style="font-size:small;"><b>Student Name</b></span> <span
                                     style="text-align:justify; font-size: xx-small;"> </span> </div>
-                            <div nz-card-grid [ngStyle]="gridStyle2"> <span style="font-size:small;">Hassan</span> <span
+                            <div nz-card-grid [ngStyle]="gridStyle2"> <span style="font-size:small;"><b>{{studentName}}</b></span> <span
                                     style="text-align:justify; font-size: xx-small;"> </span> </div>
                             <div nz-card-grid [ngStyle]="gridStyle2"> <span style="font-size:small;"><b>Grades</b></span> <span
                                     style="text-align:justify; font-size: xx-small;"> </span> </div>
-                            <div nz-card-grid [ngStyle]="gridStyle2"> <span style="font-size:small;">A-One</span> <span
+                            <div nz-card-grid [ngStyle]="gridStyle2"> <span style="font-size:small;"><b>{{Grade}}%</b></span> <span
                                     style="text-align:justify; font-size: xx-small;"> </span> </div>
                            
     

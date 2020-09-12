@@ -36,13 +36,17 @@ export class AddcourseweightComponent implements OnInit {
   }
 
   postGrade() {
+    let courseweight;
+    courseweight=this.weightObj.course.courseWeight;
+    console.log(courseweight);
     console.log(this.weightObj);
     if (!this.id) {
       this.service.postGrade(this.weightObj).subscribe(res => {
         console.log(res)
-        if (res == 200) {
+        if (res.status == 200) {
           this.message.success("Grade Added Successfully", { nzDuration: 3000 })
           this.EmptyFields();
+         
         }
         else {
           this.message.error("Something Went Error", { nzDuration: 3000 })
@@ -65,7 +69,7 @@ export class AddcourseweightComponent implements OnInit {
 
   EmptyFields() {
     this.weightObj.student = "";
-    this.weightObj.course = "";
+    this.weightObj.course = null;
     this.weightObj.courseMarks = "";
   }
 

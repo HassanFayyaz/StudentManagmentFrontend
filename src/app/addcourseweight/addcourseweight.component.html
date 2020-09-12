@@ -11,6 +11,7 @@
     <label><b> Select Course:</b></label>
     
     <nz-select [(ngModel)]="weightObj.course" required >
+      
       <nz-option name="course" *ngFor="let item of courseArray" [selected]="item.isSelected == true" nzLabel={{item.courseName}} [nzValue]="item"></nz-option>
       </nz-select>    
    
