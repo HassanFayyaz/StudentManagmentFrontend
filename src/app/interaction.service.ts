@@ -23,8 +23,8 @@ export class InteractionService {
   private updateGradeURL=environment.baseUrl+"api/grades/update/";
   private deleteGradeURL=environment.baseUrl+"api/grades/delete/";
   private getGradeByIdURL=environment.baseUrl+"api/grades/"
-
   private loginuserURL=environment.baseUrl+"token/generate-token";
+  private getGradeBookDataURL= environment.baseUrl+"api/student/gradebook/"
 
 
   constructor(private http:HttpClient) { }
@@ -77,6 +77,10 @@ export class InteractionService {
   }
   public getGradeById(id:any):Observable<any>{
     return this.http.get(this.getGradeByIdURL+id);
+  }
+
+  getGradeBookData(email:any):Observable<any>{
+    return this.http.get(this.getGradeBookDataURL+email);
   }
   
   loggedIn(){

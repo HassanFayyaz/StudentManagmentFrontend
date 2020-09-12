@@ -31,9 +31,7 @@ export class AddStudentComponent implements OnInit {
         console.log(response);
         if(response.status==200){
           this.message.success(response.message, { nzDuration: 3000 });
-          this.addstudent.studentName="";
-          this.addstudent.studentEmail="";
-          this.addstudent.studentPassword="";
+          this.emptyFields();
 
         }else{
           this.message.error("Some error occured or your email is incorrect", { nzDuration: 3000 });
@@ -45,6 +43,8 @@ export class AddStudentComponent implements OnInit {
         console.log(response);
         if(response.status==200){
           this.message.success(response.message, { nzDuration: 3000 });
+          this.emptyFields();
+
         }else{
           this.message.error("Cannot update", { nzDuration: 3000 });
         }
@@ -53,6 +53,12 @@ export class AddStudentComponent implements OnInit {
     }
     
 
+  }
+
+  emptyFields(){
+    this.addstudent.studentName="";
+    this.addstudent.studentEmail="";
+    this.addstudent.studentPassword="";
   }
 
   

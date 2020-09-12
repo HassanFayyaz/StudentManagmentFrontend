@@ -42,9 +42,10 @@ export class AddcourseweightComponent implements OnInit {
     if (!this.id && courseweight>this.weightObj.courseMarks ) {
       this.service.postGrade(this.weightObj).subscribe(res => {
         console.log(res)
-        if (res == 200) {
+        if (res.status == 200) {
           this.message.success("Grade Added Successfully", { nzDuration: 3000 })
           this.EmptyFields();
+         
         }
         else {
           this.message.error("Something Went Wrong Or ", { nzDuration: 3000 })
