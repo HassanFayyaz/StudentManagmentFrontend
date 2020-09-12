@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
       if(res.status==200){
         console.log(res);
         sessionStorage.setItem('token',res.result.token);
+             
               sessionStorage.setItem('username',res.result.username);
               sessionStorage.setItem('role',res.result.userType);
               sessionStorage.setItem("studentEmail",res.result.email)

@@ -32,4 +32,8 @@ export class TeacherComponent implements OnInit {
   gotoGradeList(){
     this.router.navigate(['layout/gradelist'])
   }
+  goToLogin(){
+    this.router.navigate(['']);
+    sessionStorage.clear();
+  }
 }
