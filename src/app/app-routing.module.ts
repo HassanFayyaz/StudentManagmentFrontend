@@ -20,6 +20,8 @@ const routes: Routes = [
     {path:'student',component:StudentComponent, canActivate:[AuthGuard],data:{"teacher":true}},
     {path:'addstudent',component:AddStudentComponent, canActivate:[AuthGuard],data:{"teacher":true}},
     {path:'addgrades',component:AddcourseweightComponent, canActivate:[AuthGuard],data:{"teacher":true}},
+    {path:'addgrades/:id',component:AddcourseweightComponent, canActivate:[AuthGuard],data:{"teacher":true}},
+
     {path:'gradelist',component:GradeListComponent, canActivate:[AuthGuard],data:{"teacher":true}},
     {path:'addcourse',component:AddCourseComponent, canActivate:[AuthGuard],data:{"teacher":true}},
     {path:'addcourse/:id',component:AddCourseComponent, canActivate:[AuthGuard],data:{"teacher":true}},

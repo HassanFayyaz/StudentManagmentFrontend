@@ -48,7 +48,7 @@ export class AddcourseweightComponent implements OnInit {
          
         }
         else {
-          this.message.error("Something Went Wrong Or ", { nzDuration: 3000 })
+          this.message.error("Something Went Wrong Or already student is already Graded to that course ", { nzDuration: 3000 })
         }
       })
     }
