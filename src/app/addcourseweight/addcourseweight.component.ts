@@ -36,8 +36,10 @@ export class AddcourseweightComponent implements OnInit {
   }
 
   postGrade() {
+    let courseweight=this.weightObj.course.courseWeight;
+
     console.log(this.weightObj);
-    if (!this.id) {
+    if (!this.id && courseweight>this.weightObj.courseMarks ) {
       this.service.postGrade(this.weightObj).subscribe(res => {
         console.log(res)
         if (res == 200) {
@@ -45,11 +47,11 @@ export class AddcourseweightComponent implements OnInit {
           this.EmptyFields();
         }
         else {
-          this.message.error("Something Went Error", { nzDuration: 3000 })
+          this.message.error("Something Went Wrong Or ", { nzDuration: 3000 })
         }
       })
     }
-    else {
+    else if(this.id!=null) {
       this.service.updateGrades(this.id, this.weightObj).subscribe(res => {
         console.log(res)
         if (res.status == 200) {
@@ -60,12 +62,15 @@ export class AddcourseweightComponent implements OnInit {
           this.message.error("Cannot Update", { nzDuration: 3000 });
         }
       })
+    }else{
+      this.message.error("Course marks cannot be greather than its course weight", { nzDuration: 3000 });
+
     }
   }
 
   EmptyFields() {
     this.weightObj.student = "";
-    this.weightObj.course = "";
+    this.weightObj.course = null;
     this.weightObj.courseMarks = "";
   }
 

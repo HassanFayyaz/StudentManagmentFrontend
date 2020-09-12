@@ -1,5 +1,11 @@
 export class addcourseweight{
-    student:{}
-    course: {}
+    student:any
+    course:{
+        id:any,
+        courseName:any,
+        courseWeight:any,
+        active:any
+
+    }
     courseMarks:any
 }

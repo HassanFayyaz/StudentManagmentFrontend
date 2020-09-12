@@ -12,22 +12,22 @@ import { CourseListComponent } from './course-list/course-list.component';
 import { AuthGuard } from 'src/app/auth.guard';
 
 const routes: Routes = [
-  {path:'gradebook',component:GradebookComponent, canLoad:[AuthGuard]},
+  {path:'gradebook',component:GradebookComponent, canActivate:[AuthGuard],data:{"student":true}},
   {path:'',component:LoginComponent},
   {path:'layout',component:TeacherComponent, canActivate:[AuthGuard],
   children:[
-    {path:'',component:StudentComponent, canActivate:[AuthGuard]},
-    {path:'student',component:StudentComponent, canActivate:[AuthGuard]},
-    {path:'addstudent',component:AddStudentComponent, canActivate:[AuthGuard]},
-    {path:'addgrades',component:AddcourseweightComponent, canActivate:[AuthGuard]},
-    {path:'gradelist',component:GradeListComponent, canActivate:[AuthGuard]},
-    {path:'addcourse',component:AddCourseComponent, canActivate:[AuthGuard]},
-    {path:'addcourse/:id',component:AddCourseComponent, canActivate:[AuthGuard]},
-    {path:'courselist',component:CourseListComponent, canActivate:[AuthGuard]},
-    {path:'addstudent/:id',component:AddStudentComponent, canActivate:[AuthGuard]}
+    {path:'',component:StudentComponent, canActivate:[AuthGuard],data:{"teacher":true}},
+    {path:'student',component:StudentComponent, canActivate:[AuthGuard],data:{"teacher":true}},
+    {path:'addstudent',component:AddStudentComponent, canActivate:[AuthGuard],data:{"teacher":true}},
+    {path:'addgrades',component:AddcourseweightComponent, canActivate:[AuthGuard],data:{"teacher":true}},
+    {path:'gradelist',component:GradeListComponent, canActivate:[AuthGuard],data:{"teacher":true}},
+    {path:'addcourse',component:AddCourseComponent, canActivate:[AuthGuard],data:{"teacher":true}},
+    {path:'addcourse/:id',component:AddCourseComponent, canActivate:[AuthGuard],data:{"teacher":true}},
+    {path:'courselist',component:CourseListComponent, canActivate:[AuthGuard],data:{"teacher":true}},
+    {path:'addstudent/:id',component:AddStudentComponent, canActivate:[AuthGuard],data:{"teacher":true}}
 
   
-  ]
+  ],data:{"teacher":true}
 }
 
 ];
